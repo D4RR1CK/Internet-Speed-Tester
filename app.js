@@ -6,7 +6,7 @@ async function startTest(){
 
 async function testPing(){
     const start = performance.now();
-    await fetch("api/ping.php");
+    await fetch("ping.php");
     const end = performance.now();
 
     const ping = Math.round(end - start);
@@ -16,7 +16,7 @@ async function testPing(){
 async function testDownload(){
     const start = performance.now();
 
-    const response = await fetch("api/download.php");
+    const response = await fetch("download.php");
     const blob = await response.blob();
 
     const end = performance.now();
@@ -34,7 +34,7 @@ async function testUpload(){
 
     const start = performance.now();
 
-    await fetch("api/upload.php", {
+    await fetch("upload.php", {
         method: "POST",
         body: data
     });
@@ -46,4 +46,5 @@ async function testUpload(){
     const speedMbps = (sizeInBits / duration) / (1024 * 1024);
 
     document.getElementById("upload").innerText = speedMbps.toFixed(2);
+
 }
