@@ -1,7 +1,22 @@
 async function startTest(){
+    const car = document.getElementById("car");
+
+    document.getElementById("ping").innerText = "-";
+    document.getElementById("download").innerText = "-";
+    document.getElementById("upload").innerText = "-";
+    
+    car.classList.remove("move-car");
+    car.style.left = "-100px";
+
+    await new Promise(resolve => setTimeout(resolve, 50));
+
+    car.classList.add("move-car");
+
     await testPing();
     await testDownload();
     await testUpload();
+
+    car.style.left = "calc(100% - 0px)";
 }
 
 async function testPing(){

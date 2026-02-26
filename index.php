@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #car {
+            left: -100px;
+            transition: left 10s linear;
+        }
+
+        .move-car{
+            left: 100%;
+        }
+    </style>
 </head>
 <body class="bg-blue-500">
     <div class="font-serif text-center mt-20">
@@ -14,6 +24,12 @@
         <div class="text-2xl">
             <div class="mb-20"> 
                 <button onClick="startTest()" class=" border border-black bg-gray rounded-lg">Start Test</button><br/>
+                <div class="relative w-full h-24 overflow-hidden mt-10">
+                    <div class="absolute bottom-5 w-full h-2 bg-black"></div>
+                    <div id="car" class="absolute bottom-8 text-4xl">
+                        🚓
+                    </div>
+                </div>
             </div>
             <div>
                 <p>Ping: <span id="ping">-</span> ms</p>
